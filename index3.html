@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My Second Google Map</h1>
+
+<select onchange="getMap(this)">
+  <option value="rome">Rome</option>
+  <option value="hawaii">Hawaii</option>
+  <option value="jamaica">Jamaica</option>
+  <option value="belize">Belize</option>
+</select>
+
+<div id="map" style="width:400px;height:400px;background:yellow"></div>
+
+<script>
+function initMap() {
+       // Styles a map in night mode.
+       var map = new google.maps.Map(document.getElementById('map'), {
+         center: {lat: 41.9028, lng: 12.4964},
+         zoom: 12,
+         styles: [
+           {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+           {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+           {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+           {
+             featureType: 'administrative.locality',
+             elementType: 'labels.text.fill',
+             stylers: [{color: '#d59563'}]
+           },
+           {
+             featureType: 'poi',
+             elementType: 'labels.text.fill',
+             stylers: [{color: '#d59563'}]
+           },
+           {
+             featureType: 'poi.park',
+             elementType: 'geometry',
+             stylers: [{color: '#263c3f'}]
+           },
+           {
+             featureType: 'poi.park',
+             elementType: 'labels.text.fill',
+             stylers: [{color: '#6b9a76'}]
+           },
+           {
+             featureType: 'road',
+             elementType: 'geometry',
+             stylers: [{color: '#38414e'}]
+           },
+           {
+             featureType: 'road',
+             elementType: 'geometry.stroke',
+             stylers: [{color: '#212a37'}]
+           },
+           {
+             featureType: 'road',
+             elementType: 'labels.text.fill',
+             stylers: [{color: '#9ca5b3'}]
+           },
+           {
+             featureType: 'road.highway',
+             elementType: 'geometry',
+             stylers: [{color: '#746855'}]
+           },
+           {
+             featureType: 'road.highway',
+             elementType: 'geometry.stroke',
+             stylers: [{color: '#1f2835'}]
+           },
+           {
+             featureType: 'road.highway',
+             elementType: 'labels.text.fill',
+             stylers: [{color: '#f3d19c'}]
+           },
+           {
+             featureType: 'transit',
+             elementType: 'geometry',
+             stylers: [{color: '#2f3948'}]
+           },
+           {
+             featureType: 'transit.station',
+             elementType: 'labels.text.fill',
+             stylers: [{color: '#d59563'}]
+           },
+           {
+             featureType: 'water',
+             elementType: 'geometry',
+             stylers: [{color: '#17263c'}]
+           },
+           {
+             featureType: 'water',
+             elementType: 'labels.text.fill',
+             stylers: [{color: '#515c6d'}]
+           },
+           {
+             featureType: 'water',
+             elementType: 'labels.text.stroke',
+             stylers: [{color: '#17263c'}]
+           }
+         ]
+       });
+     }
+function myMap(lat, long) {
+   if(lat == null){
+     lat = 39.9723822;
+   }
+   if(long == null){
+     long = -85.91768330000002;
+   }
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {
+    center: new google.maps.LatLng(lat, long), zoom: 10
+  };
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+}
+
+function getMap(e){
+  if(e.value == "rome"){
+    myMap(41.9028,12.4964);
+  }
+  else if(e.value == "hawaii"){
+    myMap(19.8967662,-155.58278180000002);
+  }
+  else if(e.value == "jamaica"){
+    myMap(18.109581,-77.297508);
+  }
+  else if(e.value == "belize"){
+    myMap(17.1899,-88.4976);
+  }
+}
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYdo3203bZXGWEpDcutYrcC2uPD3XKrs8&libraries=drawing&callback=initMap"
+         async defer></script>
+  </body>
+</html>
+
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCYdo3203bZXGWEpDcutYrcC2uPD3XKrs8&callback=initMap"></script>
+
+
+
+
+
+</body>
+
+
+</html>
